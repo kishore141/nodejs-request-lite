@@ -1,0 +1,23 @@
+{
+  "name": "@kishore141/nodejs-request-lite",
+  "version": "1.0.0",
+  "description": "nodejs lite network request library",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist/**/*"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kishore141/nodejs-request-lite.git"
+  },
+  "homepage": "https://github.com/kishore141/nodejs-request-lite.git#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build" : "tsc"
+  },
+  "keywords": ["nodejs", "network", "request", "lite"],
+  "author": "kishore",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.1.6"
+  }
+}
