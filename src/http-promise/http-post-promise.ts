@@ -1,16 +1,18 @@
 import https from 'https';
 import {HttpResponse} from "../types";
 
-function httpPostPromise(url: string, dataString: string): Promise<HttpResponse> {
+function httpPostPromise(url: string, dataString: string, checkSsl: boolean = true): Promise<HttpResponse> {
 
     const options = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Content-Length': dataString.length,
         },
         timeout: 1000, // in ms
-    }
+        agent: new https.Agent({
+            rejectUnauthorized: checkSsl,
+        })
+    };
 
     return new Promise((resolve, reject) => {
         const req = https.request(url, options, (res) => {

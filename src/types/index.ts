@@ -2,6 +2,8 @@ import {IncomingHttpHeaders} from "http2";
 
 export type Json = object | null;
 
+export type JsonString = string | null;
+
 export type HttpResponse = {
     statusCode: number | undefined;
     headers: IncomingHttpHeaders;
