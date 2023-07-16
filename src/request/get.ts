@@ -17,7 +17,7 @@ export const get = async (url: string, checkSsl: boolean = true, checkRedirect: 
 export const getJson = async (url: string, checkSsl: boolean = true, checkRedirect: boolean = true):Promise<HttpJsonResponse> => {
     const response = await get(url, checkSsl, checkRedirect);
     const { statusCode, headers, buffer } = response;
-    return {statusCode, headers, json: Convert.toJson(buffer.toString())}
+    return {statusCode, headers, json: Convert.bufferToJson(buffer)}
 }
 
 export const getJsonData = async (url: string, checkSsl: boolean = true, checkRedirect: boolean = true):Promise<HttpJsonDataResponse> => {

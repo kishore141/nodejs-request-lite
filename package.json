@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/kishore141/nodejs-request-lite.git#readme",
   "scripts": {
-    "test": "jest",
+    "test": "jest --maxWorkers 2",
     "build": "tsc"
   },
   "keywords": [

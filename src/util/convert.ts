@@ -17,15 +17,15 @@ const bufferToJson = (buffer: Buffer): Json => {
 
 }
 
-const jsonToString = (json: Json): string => {
+const jsonToString = (json: Json): string | null => {
     try {
         if(json && typeof json === "object"){
             return JSON.stringify(json);
         }else {
-            return "";
+            return null;
         }
     } catch (e) {
-        return "";
+        return null;
     }
 }
 

@@ -1,20 +1,21 @@
 import https from 'https';
-import {HttpResponse} from "../types";
+import {HttpResponse, JsonString} from "../types";
 
-function httpPostPromise(url: string, dataString: string, checkSsl: boolean = true): Promise<HttpResponse> {
-
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        timeout: 1000, // in ms
-        agent: new https.Agent({
-            rejectUnauthorized: checkSsl,
-        })
-    };
+function httpPostPromise(url: string, jsonString: JsonString, checkSsl: boolean = true): Promise<HttpResponse> {
 
     return new Promise((resolve, reject) => {
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            timeout: 1000, // in ms
+            agent: new https.Agent({
+                rejectUnauthorized: checkSsl,
+            })
+        };
+
+
         const req = https.request(url, options, (res) => {
             const { statusCode, headers } = res;
             const data: any[] = []
@@ -35,7 +36,10 @@ function httpPostPromise(url: string, dataString: string, checkSsl: boolean = tr
             reject(new Error('Request time out'))
         })
 
-        req.write(dataString)
+        if(jsonString){
+            req.write(jsonString)
+        }
+
         req.end()
     })
 }

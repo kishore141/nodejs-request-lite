@@ -1,9 +1,9 @@
 import httpPostPromise from "../http-promise/http-post-promise";
 import Convert from "../util/convert";
-import {HttpBufferResponse, HttpJsonDataResponse, HttpJsonResponse} from "../types";
+import {HttpBufferResponse, HttpJsonDataResponse, HttpJsonResponse, JsonString} from "../types";
 
-export const post = async (url: string, stringData: string, checkSsl: boolean = true, checkRedirect: boolean = true): Promise<HttpBufferResponse> => {
-    return await httpPostPromise(url, stringData, checkSsl);
+export const post = async (url: string, jsonString: JsonString, checkSsl: boolean = true, checkRedirect: boolean = true): Promise<HttpBufferResponse> => {
+    return httpPostPromise(url, jsonString, checkSsl);
 };
 
 export const postJson = async (url: string, jsonData: object, checkSsl: boolean = true, checkRedirect: boolean = true): Promise<HttpJsonResponse> => {

@@ -4,4 +4,5 @@ module.exports = {
   testEnvironment: 'node',
   verbose: true,
   watchman: false,
+  rootDir:"./src"
 };
