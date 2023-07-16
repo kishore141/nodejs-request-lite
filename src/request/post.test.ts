@@ -7,8 +7,8 @@ describe("Post Request", ()=>{
         url : "https://jsonplaceholder.typicode.com/posts",
         data : {
             "userId": 1,
-            "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-            "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+            "title": "abc",
+            "body": "abc"
         }
     }
 
@@ -38,8 +38,8 @@ describe("Post Request", ()=>{
     it("return a valid json for valid json data request", async()=>{
         const data = {
             "userId": 1,
-                "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-                "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+                "title": "abc",
+                "body": "abc\n abc\n abc"
         }
         const response = await postJsonData(postRequest.url, data);
         expect(response).toEqual(expect.objectContaining({

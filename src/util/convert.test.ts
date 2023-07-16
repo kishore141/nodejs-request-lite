@@ -21,4 +21,14 @@ describe("Convert Utility", ()=>{
         // @ts-ignore
         expect(Convert.jsonToString("abc")).toBeNull();
     })
+
+    it("convert invalid json buffer to json object", () => {
+        const invalidJsonBuffer = Buffer.from("abc");
+        expect(Convert.bufferToJson(invalidJsonBuffer)).toBeNull();
+    })
+
+    it("convert invalid json buffer to json object", () => {
+        const validJsonBuffer = Buffer.from('{"abc":"xyz"}');
+        expect(Convert.bufferToJson(validJsonBuffer)).toEqual({abc: "xyz"});
+    })
 })
